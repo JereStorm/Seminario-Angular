@@ -10,30 +10,25 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let tabaco of tabacos" [ngClass]="{clearence: tabaco.clearence}">
             <td>{{tabaco.name}}</td>
             <td>{{tabaco.type}}</td>
-            <td>{{tabaco.price}}</td>
-            <td>{{tabaco.stock}}</td>
+            <td>{{tabaco.price | currency}}</td>
+
+            <td>
+                <div *ngIf="tabaco.stock==0; then content else other_content">
+                    <!-- Aqui se renderizara los ng-template -->
+                </div>
+            </td>
+            <ng-template #content>
+                <p class="badge text-bg-danger">
+                    No Disp
+                </p>
+            </ng-template>
+            <ng-template #other_content>{{tabaco.stock}}</ng-template>
+
         </tr>
-        <tr>
-            <td>Las Hojas</td>
-            <td>Comun</td>
-            <td>600</td>
-            <td>12</td>
-        </tr>
-        <tr>
-            <td>Savage</td>
-            <td>Natural</td>
-            <td>500</td>
-            <td>25</td>
-        </tr>
-        <tr>
-            <td>Flandria</td>
-            <td>Vainilla</td>
-            <td>650</td>
-            <td>30</td>
-        </tr>
+
     </tbody>
 
 

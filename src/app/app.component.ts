@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tabaqueria-smoke-app';
+  title = 'Tabaqueria Smoke App';
+
+  ngOnInit():void {
+    let year = 2022;
+  }
 }

@@ -16,6 +16,7 @@ export class TabacoListComponent implements OnInit {
       stock: 0,
       clearence: true,
       quantity: 0,
+      image: 'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
         },
     {
       name: 'Lucky',
@@ -23,6 +24,7 @@ export class TabacoListComponent implements OnInit {
       price: 420,
       quantity: 0,
       stock: 20,
+      image: 'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
     },
     {
       name: 'Las Hojas',
@@ -30,6 +32,8 @@ export class TabacoListComponent implements OnInit {
       price: 600,
       quantity: 0,
       stock: 50,
+      image: 'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
+
     },
     {
       name: 'Savage',
@@ -38,6 +42,8 @@ export class TabacoListComponent implements OnInit {
       stock: 13,
       quantity: 0,
       clearence: true,
+      image: 'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
+
 
     },
     {
@@ -46,6 +52,8 @@ export class TabacoListComponent implements OnInit {
       price: 350,
       quantity: 0,
       stock: 67,
+      image: 'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
+
     },
 
   ]

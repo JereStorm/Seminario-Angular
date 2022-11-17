@@ -1,4 +1,4 @@
-<div>
+<div class="contenedor">
   <div class="container">
     <header
       class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -8,7 +8,6 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a [routerLink]="['/']" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Productos</a></li>
         <li><a [routerLink]="['/about']" class="nav-link px-2 link-dark">Nosotros</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Promos</a></li>
       </ul>
@@ -44,6 +43,13 @@
 
     </header>
   </div>
-  <router-outlet>
-  </router-outlet>
+  <router-outlet></router-outlet>
+  <footer class="bg-dark p-2 mt-5 footer_smoke">
+    <ul class="nav p-2 col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a [routerLink]="['/']" class="nav-link px-2 link-secondary">Home</a></li>
+      <li><a [routerLink]="['/about']" class="nav-link px-2 link-secondary">Nosotros</a></li>
+      <li><a href="#" class="nav-link px-2 link-secondary">Promos</a></li>
+    </ul>
+    <p class="text-center text-muted p-2">© {{year}} Company, Inc</p>
+  </footer>
 </div>

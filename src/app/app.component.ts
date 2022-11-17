@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tabaqueria Smoke App';
-
+  year = 2022;
   ngOnInit():void {
     let year = 2022;
   }

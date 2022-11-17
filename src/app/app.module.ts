@@ -8,6 +8,7 @@ import { TabacoListComponent } from './tabaco-list/tabaco-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { TabacosComponent } from './tabacos/tabacos.component';
 import { AboutComponent } from './about/about.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AboutComponent } from './about/about.component';
     ShoppingCartComponent,
     TabacosComponent,
     AboutComponent,
+    InputIntegerComponent,
     
   ],
   imports: [

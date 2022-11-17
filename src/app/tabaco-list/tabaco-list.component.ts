@@ -63,33 +63,4 @@ export class TabacoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  upQuantity = (item: Tabaco):void => {
-    if(item.quantity < item.stock)
-    item.quantity++
-  }
-  downQuantity = (item: Tabaco):void => {
-    if(item.stock > 0 && item.quantity > 0){
-      item.quantity--
-    }
-  }
-  
-  changeQuantity = (e : Event, item: Tabaco):void => {
-    e.preventDefault();
-    if(item.quantity > item.stock){
-      item.quantity = item.stock;
-    }else if(item.quantity < 0){
-      item.quantity = 0;
-    }
-   let quantity = (e.target as HTMLInputElement).value;
-   }
- }
-  
-
-  // changeQuantity = (e, item: Tabaco):void => {
-  //    console.log(e)
-  //    if(e.target.value > item.stock){
-  //     e.preventDefault()
-  //    }
-  // }
-
-
+}

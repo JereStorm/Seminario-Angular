@@ -9,7 +9,7 @@
             <p class="card-text">{{tabaco.price | currency}}</p>
         </div>
         <div class="card-body">
-
+            <!-- ELIJO SI MOSTRAR CARTEL SIN STOCK O EL STOCK -->
             <div *ngIf="tabaco.stock==0; then content else other_content">
                 <!-- Aqui se renderizara los ng-template -->
             </div>
@@ -24,15 +24,11 @@
                 </p>
             </ng-template>
 
-
-
-            <div class="input-group mb-3 card-end">
-                <button (click)="downQuantity(tabaco)" class="btn btn-outline-dark btn-sm">-</button>
-
-                <input (keyup)="changeQuantity($event, tabaco)" [(ngModel)]="tabaco.quantity" class="form-control"
-                    aria-label="Amount (to the nearest dollar)" type="text" />
-                <button (click)="upQuantity(tabaco)" class=" btn btn-outline-dark btn-sm">+</button>
+            <div *ngIf="tabaco.stock">
+                <app-input-integer [quantity]="tabaco.quantity" [max]="tabaco.stock"></app-input-integer>
+                Cantidad{{tabaco.quantity}}
             </div>
+
             <div class="form-group">
                 <button class="btn btn-primary">AGREGAR AL CARRITO</button>
             </div>

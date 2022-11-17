@@ -29,7 +29,7 @@
                     (maxReached)="maxReached($event)"></app-input-integer>
             </div>
 
-            <div class="form-group">
+            <div *ngIf="tabaco.stock > 0" class="form-group">
                 <button class="btn btn-primary" (click)="addToCart(tabaco)">AGREGAR AL CARRITO</button>
             </div>
         </div>

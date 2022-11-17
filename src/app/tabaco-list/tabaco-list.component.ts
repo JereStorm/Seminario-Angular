@@ -62,5 +62,8 @@ export class TabacoListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+// Funciones de salida => "()"
+  maxReached(m:string){
+    alert(m);
+  }
 }

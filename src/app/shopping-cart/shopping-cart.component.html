@@ -1,6 +1,13 @@
-<h2>Carrito de Compras</h2>
+<h2>Carrito de Compras ({{getSize()}})</h2>
 
 <div class="cart-container">
-    <p class="not-product">Aun nada en el carrito...</p>
-    <p class="not-product">Elije lo que te guste mas</p>
+    <div *ngIf="getSize() == 0;  else tp_shopListMin ">
+        <p class="not-product">Aun nada en el carrito...</p>
+        <p class="not-product">Elije lo que te guste mas</p>
+    </div>
+
+    <ng-template #tp_shopListMin>
+        <h1>Estamos procesando tu pedido</h1>
+    </ng-template>
+
 </div>

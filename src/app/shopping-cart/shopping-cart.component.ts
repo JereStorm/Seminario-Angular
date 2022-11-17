@@ -13,4 +13,8 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getSize(): number {
+    return this.cart.getSize();
+  }
+
 }

@@ -10,10 +10,40 @@ import { TabacoCartService } from '../tabaco-cart.service';
 export class TabacoListComponent implements OnInit {
   tabacos: Tabaco[] = [
     {
+      name: 'Lenovotomia',
+      type: 'Metalica',
+      price: 456,
+      stock: 100,
+      clearence: true,
+      quantity: 0,
+      image:
+        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
+    },
+    {
+      name: 'StormFire',
+      type: 'Manzana',
+      price: 450,
+      stock: 45,
+      clearence: false,
+      quantity: 0,
+      image:
+        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
+    },
+    {
+      name: 'CocaQueen',
+      type: 'CocaCola',
+      price: 4200,
+      stock: 420,
+      clearence: true,
+      quantity: 0,
+      image:
+        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
+    },
+    {
       name: 'Gaucho',
       type: 'Natural',
       price: 422,
-      stock: 0,
+      stock: 34,
       clearence: true,
       quantity: 0,
       image:

@@ -1,9 +1,8 @@
-<h2 class="">Carrito de Compras ({{getSize()}})</h2>
-<div class="cart-container sticky-top ">
+<div class="sticky-top">
+    <h2 class="">Carrito de Compras <span class="badge text-bg-secondary">{{getSize()}}</span></h2>
 
-    <div class="sticky-top" *ngIf="getSize() != 0;  else tp_nathingToBuy ">
-        <ul class="mt-5 ps-0">
-
+    <div class="cart-container mt-5" *ngIf="getSize() != 0;  else tp_nathingToBuy ">
+        <ul class=" ps-0 scroll-list">
             <li class="card col-12 p-2 m-2 mt-2" *ngFor="let e of (shopList$ | async)">
                 <div class="d-flex justify-content-between align-items-center p-2">
                     <p>Tabaco: {{e.name}} ({{e.quantity}})</p>
@@ -20,8 +19,11 @@
     </div>
 
     <ng-template #tp_nathingToBuy>
-        <p class="not-product">Aun nada en el carrito...</p>
-        <p class="not-product">Elije lo que te guste mas</p>
+        <div class="not-product mt-5">
+            <p>Aun nada en el carrito...</p>
+            <p>Elije lo que te guste mas</p>
+        </div>
+
     </ng-template>
 
 </div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Tabaco } from './tabaco-list/Tabaco';
 
 @Injectable({
@@ -11,26 +12,29 @@ import { Tabaco } from './tabaco-list/Tabaco';
 export class TabacoCartService {
   constructor() {}
 
-  //creo la lista de tabacos local
-  shopList: Tabaco[] = [];
+  //OBSERVABLE
+  private _shopList: Tabaco[] = [];
+
+  //OBSERVATOR
+  shopList: BehaviorSubject<Tabaco[]> = new BehaviorSubject(this._shopList);
 
   //agrego al shopList el tabaco seleccionado (LOGICA)
   addToCart(tabaco: Tabaco) {
     //buscador del objeto
-    let item: Tabaco | undefined = this.shopList.find(
-      (v1) => (v1.name = tabaco.name)
+    let item: Tabaco | undefined = this._shopList.find(
+      (v1) => v1.name == tabaco.name
     );
 
-    if (!item) {
+    if (typeof item == 'undefined') {
       //creamos una copia del objeto a aprtir de sus atributos
-      this.shopList.push({ ...tabaco });
+      this._shopList.push({ ...tabaco });
     } else {
       item.quantity += tabaco.quantity;
     }
-    console.log(this.shopList);
+    this.shopList.next(this._shopList);
   }
 
   getSize(): number {
-    return this.shopList.length;
+    return this._shopList.length;
   }
 }

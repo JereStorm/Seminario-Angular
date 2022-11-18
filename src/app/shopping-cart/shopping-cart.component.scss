@@ -1,14 +1,31 @@
 .cart-container{
+    min-height: 400px;
+    max-height: 600px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
     justify-content: center;
+    gap: 20px;
     align-items: center;
-    min-height: 50vh;
-    max-height: 100vh;
-    background-color: rgb(211, 211, 211);
     border-radius: 8px;
+   overflow-y: scroll;
 }
+.cart-container::-webkit-scrollbar {
+    width: 6px
+  }
+.cart-container::-webkit-scrollbar-thumb {
+    background-color: #464646;
+    border: 7px none #ffffff;
+    border-radius: 10px;
+  }
 .not-product{
     font-size: 1.5rem;
 }
+
+@media only screen and (min-width: 500px) {
+    .cart-container{
+       display:flex;
+       width: 100%;
+       
+    } 
+   }

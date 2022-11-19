@@ -18,6 +18,14 @@ export class TabacoCartService {
   //OBSERVATOR
   shopList: BehaviorSubject<Tabaco[]> = new BehaviorSubject(this._shopList);
 
+  spliceToCart(name: string) {
+    let item: Tabaco | undefined = this._shopList.find((v1) => v1.name == name);
+    if (typeof item != 'undefined') {
+      this._shopList = this._shopList.filter((v1) => v1.name != name);
+      this.shopList.next(this._shopList);
+    }
+  }
+
   //agrego al shopList el tabaco seleccionado (LOGICA)
   addToCart(tabaco: Tabaco) {
     //buscador del objeto

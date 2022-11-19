@@ -24,4 +24,8 @@ export class ShoppingCartComponent implements OnInit {
   getSize(): number {
     return this.cart.getSize();
   }
+
+  spliceToCart(name: string): void {
+    this.cart.spliceToCart(name);
+  }
 }

@@ -3,15 +3,24 @@
 
     <div class="cart-container mt-5" *ngIf="getSize() != 0;  else tp_nathingToBuy ">
         <ul class=" ps-0 scroll-list">
-            <li class="card col-12 p-2 m-2 mt-2" *ngFor="let e of (shopList$ | async)">
+            <li class="card col-12 p-2 m-2 mt-3" *ngFor="let e of (shopList$ | async)">
+                <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary">
+                    {{e.quantity}}
+                </span>
+
                 <div class="d-flex justify-content-between align-items-center p-2">
-                    <p>Tabaco: {{e.name}} ({{e.quantity}})</p>
+                    <p>Tabaco: {{e.name}}
+
+                    </p>
                     <img width="60px" src="{{e.image}}" alt="{{e.name}}">
                 </div>
                 <hr>
                 <div class="text-start d-flex flex-column justify-content-between align-items-start p-2">
                     <p>Precio x unidad: ${{e.price}}</p>
                     <p>Precio Total: ${{e.price * e.quantity}}</p>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button (click)="spliceToCart(e.name)" class="btn btn-sm btn-danger">X</button>
                 </div>
             </li>
 

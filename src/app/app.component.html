@@ -1,49 +1,49 @@
-<div class="contenedor">
-  <div class="container">
-    <header
-      class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        {{title}}
-      </a>
+<div class="container">
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      {{title}}
+    </a>
 
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a [routerLink]="['/']" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a [routerLink]="['/about']" class="nav-link px-2 link-dark">Nosotros</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Promos</a></li>
-      </ul>
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a [routerLink]="['/']" class="nav-link px-2 link-secondary">Home</a></li>
+      <li><a [routerLink]="['/about']" class="nav-link px-2 link-dark">Nosotros</a></li>
+      <li><a href="#" class="nav-link px-2 link-dark">Promos</a></li>
+    </ul>
 
-      <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-info m-2">Login</button>
-        <button type="button" class="btn btn-info m-2">Sign-up</button>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <i class="bi bi-cart-check-fill"></i>
-        </button>
+    <div class="col-md-3 text-end">
+      <button type="button" class="btn btn-outline-info m-2">Login</button>
+      <button type="button" class="btn btn-info m-2">Sign-up</button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="bi bi-cart-check-fill"></i>
+      </button>
 
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <!-- ACA IRIAN LOS PRODUCTOS DEL CARRITO -->
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Proceder con la Compra</button>
-              </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- ACA IRIAN LOS PRODUCTOS DEL CARRITO -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Proceder con la Compra</button>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-    </header>
-  </div>
-  <router-outlet></router-outlet>
+  </header>
+</div>
+<router-outlet></router-outlet>
+<div>
   <footer class="bg-dark p-2 mt-5 footer_smoke">
     <ul class="nav p-2 col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       <li><a [routerLink]="['/']" class="nav-link px-2 link-secondary">Home</a></li>

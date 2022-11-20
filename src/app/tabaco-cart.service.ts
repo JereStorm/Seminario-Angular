@@ -45,4 +45,13 @@ export class TabacoCartService {
   getSize(): number {
     return this._shopList.length;
   }
+
+  getTotal(): number {
+    let total: number = 0;
+    this._shopList.forEach((tabaco) => {
+      total += tabaco.price * tabaco.quantity;
+    });
+
+    return total;
+  }
 }

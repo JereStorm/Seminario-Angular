@@ -1,10 +1,12 @@
 <div class="sticky-top">
-    <h2 class="">Carrito de Compras <span class="badge text-bg-secondary">{{getSize()}}</span></h2>
-
+    <h2>Carrito de Compras <span class="badge text-bg-secondary">{{getSize()}}</span></h2>
+    <div class="pt-2 pb-2" *ngIf="getSize() != 0">
+        <h4 class="pt-3">Precio total: <span class="badge text-bg-dark">${{getTotal()}}</span> </h4>
+    </div>
     <div class="cart-container mt-5" *ngIf="getSize() != 0;  else tp_nathingToBuy ">
         <ul class=" ps-0 scroll-list">
             <li class="card col-12 p-2 m-2 mt-3" *ngFor="let e of (shopList$ | async)">
-                <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-primary">
+                <span class="position-absolute top-0 start-0 translate-middle badge rounded bg-info">
                     {{e.quantity}}
                 </span>
 
@@ -20,10 +22,9 @@
                     <p>Precio Total: ${{e.price * e.quantity}}</p>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button (click)="spliceToCart(e.name)" class="btn btn-sm btn-danger">X</button>
+                    <button (click)="spliceToCart(e)" class="btn btn-sm btn-danger">X</button>
                 </div>
             </li>
-
         </ul>
     </div>
 
@@ -32,7 +33,6 @@
             <p>Aun nada en el carrito...</p>
             <p>Elije lo que te guste mas</p>
         </div>
-
     </ng-template>
 
 </div>

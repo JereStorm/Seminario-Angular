@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Tabaco } from './Tabaco';
 import { TabacoCartService } from '../tabaco-cart.service';
 import { TabacoDataService } from '../tabaco-data.service';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-tabaco-list',
@@ -9,7 +10,9 @@ import { TabacoDataService } from '../tabaco-data.service';
   styleUrls: ['./tabaco-list.component.scss'],
 })
 export class TabacoListComponent implements OnInit {
-  tabacos: Tabaco[] = [
+  tabacos: Tabaco[] = [];
+
+  /**[
     {
       name: 'Lenovotomia',
       type: 'Metalica',
@@ -87,14 +90,24 @@ export class TabacoListComponent implements OnInit {
       image:
         'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
     },
-  ];
+  ]; */
 
   constructor(
     private cart: TabacoCartService,
     private tabacoService: TabacoDataService
   ) {}
 
-  ngOnInit(): void {}
+  /**
+   * HOOK(ngOnInit()) de inicio del componenete;
+   * contraparte: onDestroy() => para desubscribirme
+   * o usar el pipe de angular
+   */
+  ngOnInit(): void {
+    // this.tabacoService.getAll().forEach((value) => this.tabacos.push(...value));
+    this.tabacoService
+      .getAll()
+      .subscribe((tabacos) => (this.tabacos = tabacos));
+  }
   // Funciones de salida => "()"
   maxReached(m: string) {
     alert(m);

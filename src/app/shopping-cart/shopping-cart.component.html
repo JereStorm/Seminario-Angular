@@ -6,7 +6,7 @@
     <div class="cart-container mt-5" *ngIf="getSize() != 0;  else tp_nathingToBuy ">
         <ul class=" ps-0 scroll-list">
             <li class="card col-12 p-2 m-2 mt-3" *ngFor="let e of (shopList$ | async)">
-                <span class="position-absolute top-0 start-0 translate-middle badge rounded bg-info">
+                <span class="position-absolute top-0 start-0 translate-middle badge rounded bg-info text-dark">
                     {{e.quantity}}
                 </span>
 

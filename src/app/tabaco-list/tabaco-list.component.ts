@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tabaco } from './Tabaco';
 import { TabacoCartService } from '../tabaco-cart.service';
+import { TabacoDataService } from '../tabaco-data.service';
 
 @Component({
   selector: 'app-tabaco-list',
@@ -88,7 +89,10 @@ export class TabacoListComponent implements OnInit {
     },
   ];
 
-  constructor(private cart: TabacoCartService) {}
+  constructor(
+    private cart: TabacoCartService,
+    private tabacoService: TabacoDataService
+  ) {}
 
   ngOnInit(): void {}
   // Funciones de salida => "()"

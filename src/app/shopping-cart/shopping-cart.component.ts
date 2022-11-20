@@ -30,6 +30,6 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   spliceToCart(e: Tabaco): void {
-    this.cart.spliceToCart(e.name);
+    this.cart.spliceToCart(e);
   }
 }

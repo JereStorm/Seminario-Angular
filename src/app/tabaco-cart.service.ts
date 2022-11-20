@@ -18,10 +18,12 @@ export class TabacoCartService {
   //OBSERVATOR
   shopList: BehaviorSubject<Tabaco[]> = new BehaviorSubject(this._shopList);
 
-  spliceToCart(name: string) {
-    let item: Tabaco | undefined = this._shopList.find((v1) => v1.name == name);
+  spliceToCart(e: Tabaco) {
+    let item: Tabaco | undefined = this._shopList.find(
+      (v1) => v1.name == e.name
+    );
     if (typeof item != 'undefined') {
-      this._shopList = this._shopList.filter((v1) => v1.name != name);
+      this._shopList = this._shopList.filter((v1) => v1.name != e.name);
       this.shopList.next(this._shopList);
     }
   }

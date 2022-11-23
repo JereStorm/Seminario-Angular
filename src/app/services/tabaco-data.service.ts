@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Tabaco } from './tabaco-list/Tabaco';
-import { tap } from 'rxjs';
+import { Tabaco } from '../tabaco-list/Tabaco';
+import { BehaviorSubject, tap } from 'rxjs';
 
 const URL = 'https://60c280a6917002001739d1bb.mockapi.io/api/articles';
 
@@ -16,12 +16,10 @@ export class TabacoDataService {
    */
   public getAll() {
     //aqui se renderiza la api
-    return this.http
-      .get<Tabaco[]>(URL)
-      .pipe(
-        tap((tabacos: Tabaco[]) =>
-          tabacos.forEach((value) => (value.quantity = 0))
-        )
-      );
+    return this.http.get<Tabaco[]>(URL).pipe(
+      tap((tabacos: Tabaco[]) => {
+        return tabacos.forEach((value) => (value.quantity = 0));
+      })
+    );
   }
 }

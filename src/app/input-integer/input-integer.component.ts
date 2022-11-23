@@ -4,20 +4,16 @@ import { Tabaco } from '../tabaco-list/Tabaco';
 @Component({
   selector: 'app-input-integer',
   templateUrl: './input-integer.component.html',
-  styleUrls: ['./input-integer.component.scss']
+  styleUrls: ['./input-integer.component.scss'],
 })
-
-
 export class InputIntegerComponent implements OnInit {
-
-  constructor() {
-  }
+  constructor() {}
 
   /*PREGUNTAR POR LOS INPUT DE ENTRADA => "!:" */
-  @Input() 
+  @Input()
   quantity!: number;
 
-  @Input() 
+  @Input()
   max!: number;
 
   @Output()
@@ -26,39 +22,37 @@ export class InputIntegerComponent implements OnInit {
   @Output()
   maxReached: EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  upQuantity = ():void => {
-    if(this.quantity < this.max){
+  upQuantity = (): void => {
+    if (this.quantity < this.max) {
       this.quantity++;
       this.quantityChange.emit(this.quantity);
-    }else{
-      this.maxReached.emit("Se alcanzo el maximo disponible en este momento")
+    } else {
+      this.maxReached.emit('Se alcanzo el maximo disponible en este momento');
     }
-  }
+  };
 
-  downQuantity = ():void => {
-    if(this.quantity > 0){
+  downQuantity = (): void => {
+    if (this.quantity > 0) {
       this.quantity--;
       this.quantityChange.emit(this.quantity);
     }
-  }
-  
-  changeQuantity = (e : Event):void => {
+  };
+
+  changeQuantity = (e: Event): void => {
     e.preventDefault();
-    
-    if(this.quantity > this.max){
+
+    if (this.quantity > this.max) {
       this.quantity = this.max;
-      this.maxReached.emit("Se alcanzo el maximo disponible en este momento")
-    }else if(this.quantity < 0){
+      this.maxReached.emit('Se alcanzo el maximo disponible en este momento');
+    } else if (this.quantity < 0) {
       this.quantity = 0;
     }
 
     this.quantityChange.emit(this.quantity);
 
     // Todo: verificar que no entre una letra en el input
-   let quantity = (e.target as HTMLInputElement).value;
-   
-  }
+    let quantity = (e.target as HTMLInputElement).value;
+  };
 }

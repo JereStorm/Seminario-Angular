@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TabacoCartService } from '../tabaco-cart.service';
+import { TabacoCartService } from '../services/tabaco-cart.service';
 import { Tabaco } from '../tabaco-list/Tabaco';
 import { Observable } from 'rxjs';
 
@@ -10,12 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class ShoppingCartComponent implements OnInit {
   shopList$: Observable<Tabaco[]>;
+  size: number = 0;
 
   /**
-   * Recibo el cart por DEPENDENCY INJECTION
+   * DEPENDENCY INJECTION
    */
   constructor(private cart: TabacoCartService) {
-    //ACA ME SUSCRIBO
     this.shopList$ = cart.shopList.asObservable();
   }
 
@@ -23,6 +23,10 @@ export class ShoppingCartComponent implements OnInit {
 
   getSize(): number {
     return this.cart.getSize();
+  }
+
+  private setSize(): void {
+    this.size = this.getSize();
   }
 
   getTotal(): number {

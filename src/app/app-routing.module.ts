@@ -7,17 +7,20 @@ const routes: Routes = [
   {
     path: '',
     component: TabacosComponent,
-    pathMatch: 'full'
-  }, 
+    pathMatch: 'full',
+  },
   {
     path: 'about',
     component: AboutComponent,
-
   },
+  /**
+   * PATH por defecto '**'
+   */
+  { path: '**', component: TabacosComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

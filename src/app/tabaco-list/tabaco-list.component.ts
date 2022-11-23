@@ -1,8 +1,16 @@
+/**
+ * Components Globals
+ */
 import { Component, OnInit } from '@angular/core';
+/**
+ * Services
+ */
+import { TabacoCartService } from '../services/tabaco-cart.service';
+import { TabacoDataService } from '../services/tabaco-data.service';
+/**
+ * Interfaces
+ */
 import { Tabaco } from './Tabaco';
-import { TabacoCartService } from '../tabaco-cart.service';
-import { TabacoDataService } from '../tabaco-data.service';
-import { __values } from 'tslib';
 
 @Component({
   selector: 'app-tabaco-list',
@@ -11,86 +19,6 @@ import { __values } from 'tslib';
 })
 export class TabacoListComponent implements OnInit {
   tabacos: Tabaco[] = [];
-
-  /**[
-    {
-      name: 'Lenovotomia',
-      type: 'Metalica',
-      price: 456,
-      stock: 100,
-      clearence: true,
-      quantity: 0,
-      image:
-        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
-    },
-    {
-      name: 'StormFire',
-      type: 'Manzana',
-      price: 450,
-      stock: 45,
-      clearence: false,
-      quantity: 0,
-      image:
-        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
-    },
-    {
-      name: 'CocaQueen',
-      type: 'CocaCola',
-      price: 4200,
-      stock: 420,
-      clearence: true,
-      quantity: 0,
-      image:
-        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
-    },
-    {
-      name: 'Gaucho',
-      type: 'Natural',
-      price: 422,
-      stock: 34,
-      clearence: true,
-      quantity: 0,
-      image:
-        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
-    },
-    {
-      name: 'Lucky',
-      type: 'Comun',
-      price: 420,
-      quantity: 0,
-      stock: 20,
-      image:
-        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
-    },
-    {
-      name: 'Las Hojas',
-      type: 'Comun',
-      price: 600,
-      quantity: 0,
-      stock: 50,
-      image:
-        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
-    },
-    {
-      name: 'Savage',
-      type: 'Natural',
-      price: 550,
-      stock: 13,
-      quantity: 0,
-      clearence: true,
-      image:
-        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
-    },
-    {
-      name: 'Pachamama',
-      type: 'Uva',
-      price: 350,
-      quantity: 0,
-      stock: 67,
-      image:
-        'https://i2.wp.com/www.donjuantabaco.com.ar/wp-content/uploads/2020/03/don-juan-tabaco-flandria-silver.jpg?resize=600%2C600&ssl=1',
-    },
-  ]; */
 
   constructor(
     private cart: TabacoCartService,
@@ -103,14 +31,22 @@ export class TabacoListComponent implements OnInit {
    * o usar el pipe de angular
    */
   ngOnInit(): void {
-    // this.tabacoService.getAll().forEach((value) => this.tabacos.push(...value));
     this.tabacoService
       .getAll()
-      .subscribe((tabacos) => (this.tabacos = tabacos));
+      .subscribe((tabacosProm) => (this.tabacos = tabacosProm));
   }
   // Funciones de salida => "()"
   maxReached(m: string) {
     alert(m);
+  }
+  pullStock(e: Tabaco) {
+    // let item: Tabaco | undefined = this.tabacos.find(
+    //   (v1) => (v1.name = e.name)
+    // );
+    // if (typeof item != 'undefined') {
+    //   this.tabacos = this.tabacos.filter((v1) => v1.name != e.name);
+    //   this.tabacos.push(e);
+    // }
   }
 
   addToCart(tabaco: Tabaco): void {

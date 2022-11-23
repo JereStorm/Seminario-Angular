@@ -3,8 +3,7 @@
         <button (click)="downQuantity()" class="btn btn-outline-dark btn-sm">-</button>
     </div>
     <!-- EXAMPLE TWO WAY DATA BINDING -->
-    <input (keyup)="changeQuantity($event)" [(ngModel)]="quantity" class="form-control text-center "
-        aria-label="Amount (to the nearest dollar)" type="text" />
+    <input (keyup)="changeQuantity($event)" [(ngModel)]="quantity" class="form-control text-center " type="text" />
     <div class="input-group-append">
         <button (click)="upQuantity()" class=" btn btn-outline-dark btn-sm">+</button>
     </div>

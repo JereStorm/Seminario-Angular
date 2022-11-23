@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tabaqueria Smoke App';
-  year = 2022;
+  year!: number;
   ngOnInit(): void {
-    let year = 2022;
+    this.year = 2022;
   }
 }

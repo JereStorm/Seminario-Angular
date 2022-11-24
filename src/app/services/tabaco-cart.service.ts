@@ -23,6 +23,7 @@ export class TabacoCartService {
       (v1) => v1.name == e.name
     );
     if (typeof item != 'undefined') {
+      //aqui deberia actualizar el stock del tabaco de TabacoList
       this._shopList = this._shopList.filter((v1) => v1.name != e.name);
       this.shopList.next(this._shopList);
     }

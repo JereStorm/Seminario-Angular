@@ -15,9 +15,9 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
 @NgModule({
   declarations: [
     AppComponent,
+    TabacosComponent,
     TabacoListComponent,
     ShoppingCartComponent,
-    TabacosComponent,
     AboutComponent,
     InputIntegerComponent,
   ],

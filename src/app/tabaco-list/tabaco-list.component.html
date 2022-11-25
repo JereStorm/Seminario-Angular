@@ -1,11 +1,11 @@
 <h2 class="m-0">Lista de Tabacos</h2>
 
 <div class="container mt-5 d-flex justify-content-center flex-wrap gap-3">
-    <div class="card text-center w-30" *ngFor="let tabaco of tabacos" [ngClass]="{clearence: tabaco.clearence}">
+    <div class="card text-center w-30" *ngFor="let tabaco of (tabacos$ | async)">
         <div class="card-body">
-            <h1 class="card-title">{{tabaco.name}}</h1>
+            <h1 class="card-title" [ngClass]="{clearence: tabaco.clearence}">{{tabaco.name}}</h1>
             <h3 class="card-text">{{tabaco.type}}</h3>
-            <img [src]="tabaco.image" width="250" alt="hola hello">
+            <img [src]="tabaco.image" width="150" alt="hola hello">
             <p class="card-text">{{tabaco.price | currency}}</p>
         </div>
         <div class="card-body">

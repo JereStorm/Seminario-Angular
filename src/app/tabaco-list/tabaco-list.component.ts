@@ -1,7 +1,8 @@
 /**
  * Components Globals
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 /**
  * Services
  */
@@ -18,35 +19,34 @@ import { Tabaco } from './Tabaco';
   styleUrls: ['./tabaco-list.component.scss'],
 })
 export class TabacoListComponent implements OnInit {
-  tabacos: Tabaco[] = [];
+  tabacos$: Observable<Tabaco[]>;
 
   constructor(
     private cart: TabacoCartService,
     private tabacoService: TabacoDataService
-  ) {}
+  ) {
+    this.tabacos$ = this.tabacoService.shopList.asObservable();
+  }
 
-  /**
-   * HOOK(ngOnInit()) de inicio del componenete;
-   * contraparte: onDestroy() => para desubscribirme
-   * o usar el pipe de angular
-   */
+  /*
   ngOnInit(): void {
     this.tabacoService
       .getAll()
       .subscribe((tabacosProm) => (this.tabacos = tabacosProm));
   }
+  */
+  /**
+   * HOOK(ngOnInit()) de inicio del componenete;
+   * contraparte: onDestroy() => para desubscribirme
+   * o usar el pipe de angular
+   **/
+  ngOnInit(): void {
+    this.tabacoService.getAll();
+  }
+
   // Funciones de salida => "()"
   maxReached(m: string) {
     alert(m);
-  }
-  pullStock(e: Tabaco) {
-    // let item: Tabaco | undefined = this.tabacos.find(
-    //   (v1) => (v1.name = e.name)
-    // );
-    // if (typeof item != 'undefined') {
-    //   this.tabacos = this.tabacos.filter((v1) => v1.name != e.name);
-    //   this.tabacos.push(e);
-    // }
   }
 
   addToCart(tabaco: Tabaco): void {

@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Tabaco } from '../tabaco-list/Tabaco';
+import { TabacoDataService } from './tabaco-data.service';
 
 @Injectable({
   providedIn: 'root',
 })
-
-/**
- * MANEJA LA LOGICA DEL CARRITO
- */
 export class TabacoCartService {
-  constructor() {}
+  constructor(private tabacoService: TabacoDataService) {}
 
   //OBSERVABLE
   private _shopList: Tabaco[] = [];
@@ -20,10 +17,11 @@ export class TabacoCartService {
 
   spliceToCart(e: Tabaco) {
     let item: Tabaco | undefined = this._shopList.find(
-      (v1) => v1.name == e.name
+      (v1) => v1.name == e.name && v1.type == e.type
     );
     if (typeof item != 'undefined') {
       //aqui deberia actualizar el stock del tabaco de TabacoList
+      this.tabacoService.pullStock({ ...e });
       this._shopList = this._shopList.filter((v1) => v1.name != e.name);
       this.shopList.next(this._shopList);
     }
